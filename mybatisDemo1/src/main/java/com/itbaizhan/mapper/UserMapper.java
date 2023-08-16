@@ -44,4 +44,10 @@ public interface UserMapper {
      */
     void deleteBatch(int[] ids);
 
+    /**
+     * 批量添加 foreach遍历Collection
+     * @param users
+     */
+    void insertBatch(List<User> users);
+
 }

@@ -108,4 +108,11 @@
             </foreach>
         </where>
     </delete>
+
+    <insert id="insertBatch" parameterType="User">
+        insert into user(username,sex,address) values
+        <foreach collection="list" item="user" separator=","><!-- separator分割的是user对象 -->
+            (#{user.username},#{user.sex},#{user.address})
+        </foreach>
+    </insert>
 </mapper>

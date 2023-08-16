@@ -11,6 +11,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -169,10 +170,25 @@ public class TestUserMapper2 {
         users.forEach(System.out::println);
     }
 
+    /**
+     * 测试批量删除
+     */
     @Test
     public void testDeleteBatch(){
         int[] ids={6,7};
         userMapper.deleteBatch(ids);
+        session.commit();
+    }
+
+    @Test
+    public void testInsertBatch(){
+        User user1 = new User("程序员1","男","北京");
+        User user2 = new User("程序员2","女","上海");
+        List<User> users = new ArrayList<>();
+        users.add(user1);
+        users.add(user2);
+        userMapper.insertBatch(users);
+        // 添加操作需要提交
         session.commit();
     }
 }

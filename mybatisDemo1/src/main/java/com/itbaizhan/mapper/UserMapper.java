@@ -28,4 +28,7 @@ public interface UserMapper {
 
     void add2(User user);
 
+    // 用户通用查询
+    List<User> findByCondition(User user);
+
 }

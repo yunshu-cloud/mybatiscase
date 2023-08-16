@@ -47,6 +47,25 @@
                 </configuration>
             </plugin>
         </plugins>
+        <!-- 配置idea可以编辑src/main/java下的xml文件 -->
+
+        <resources>
+
+            <resource>
+
+                <directory>src/main/java</directory>
+
+                <includes>
+
+                    <include>*/**/*.xml</include>
+
+                </includes>
+
+                <filtering>true</filtering>
+
+            </resource>
+
+        </resources>
     </build>
 
 

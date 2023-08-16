@@ -141,4 +141,22 @@ public class TestUserMapper2 {
         session.commit();
         System.out.println(user);
     }
+
+    /**
+     * 动态sql
+     */
+    @Test
+    public void testFindByCondition(){
+        User user = new User();
+        List<User> users = userMapper.findByCondition(user);
+        users.forEach(System.out::println);
+
+        user.setUsername("%尚学堂%");
+        List<User> users1 = userMapper.findByCondition(user);
+        users1.forEach(System.out::println);
+
+        user.setAddress("北京");
+        List<User> users2 = userMapper.findByCondition(user);
+        users2.forEach(System.out::println);
+    }
 }

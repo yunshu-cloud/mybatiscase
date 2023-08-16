@@ -60,4 +60,22 @@
         values (#{username},#{sex},#{address})
     </insert>
 
+
+<!--    动态sql-->
+    <select id="findByCondition" parameterType="User" resultType="User">
+        select * from user where 1 = 1
+        <if test="username != null and username.length != 0">
+            and username like #{username}
+        </if>
+        <if test="sex != null and sex.length != 0">
+            and sex = #{sex}
+        </if>
+        <if test="address != null and address.length != 0">
+            and address = #{address}
+        </if>
+
+
+
+    </select>
+
 </mapper>

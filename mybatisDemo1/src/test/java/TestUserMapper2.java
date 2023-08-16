@@ -191,4 +191,14 @@ public class TestUserMapper2 {
         // 添加操作需要提交
         session.commit();
     }
+
+
+    @Test
+    public void testFindUser(){
+        Map<String,Object> queryMap = new HashMap<>();
+        queryMap.put("sex","男");
+        queryMap.put("address","北京");
+        List<User> users = userMapper.findUser(queryMap);
+        users.forEach(System.out::println);
+    }
 }

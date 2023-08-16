@@ -115,4 +115,13 @@
             (#{user.username},#{user.sex},#{user.address})
         </foreach>
     </insert>
+
+    <select id="findUser" parameterType="map" resultType="User">
+        select * from user
+        <where>
+            <foreach collection="queryMap" separator="and" index="key" item="value">
+                ${key} = #{value}
+            </foreach>
+        </where>
+    </select>
 </mapper>

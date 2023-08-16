@@ -50,4 +50,13 @@ public interface UserMapper {
      */
     void insertBatch(List<User> users);
 
+
+    /**
+     * 多条件查询
+     * @param map 查询条件键值对 键：属性名 值：属性值
+     * @return
+     */
+    List<User> findUser(@Param("queryMap") Map<String,Object> map);
+
+
 }

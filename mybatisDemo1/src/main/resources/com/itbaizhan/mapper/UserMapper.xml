@@ -82,4 +82,30 @@
         </where>
     </select>
 
+    <select id="findByUsername" resultType="User" parameterType="string">
+        select * from user
+        <where>
+            <choose>
+                <when test="username.length &lt; 5">
+                    <bind name="likename" value="'%'+username+'%'"></bind>
+                    username like #{likename}
+                </when>
+                <when test="username.length &lt; 10">
+                    username = #{username}
+                </when>
+                <otherwise>
+                    id = 1
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+
+    <delete id="deleteBatch" parameterType="int">
+        delete from user
+        <where>
+            <foreach open="id in(" close=")" separator="," collection="array" item="id" >
+                #{id}
+            </foreach>
+        </where>
+    </delete>
 </mapper>

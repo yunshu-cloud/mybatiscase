@@ -159,4 +159,20 @@ public class TestUserMapper2 {
         List<User> users2 = userMapper.findByCondition(user);
         users2.forEach(System.out::println);
     }
+
+    /**
+     * 测试分支<choose><when><otherwise>
+     */
+    @Test
+    public void testFindByUsername(){
+        List<User> users = userMapper.findByUsername("北京");
+        users.forEach(System.out::println);
+    }
+
+    @Test
+    public void testDeleteBatch(){
+        int[] ids={6,7};
+        userMapper.deleteBatch(ids);
+        session.commit();
+    }
 }

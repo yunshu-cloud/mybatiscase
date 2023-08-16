@@ -31,4 +31,17 @@ public interface UserMapper {
     // 用户通用查询
     List<User> findByCondition(User user);
 
+
+    /**
+     * choose{when , otherwise} 标签 分支
+     * @param username
+     */
+    List<User> findByUsername(String username);
+
+    /**
+     * 批量删除 foreach遍历数组
+     * @param ids
+     */
+    void deleteBatch(int[] ids);
+
 }

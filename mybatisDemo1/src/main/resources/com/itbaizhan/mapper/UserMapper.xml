@@ -11,9 +11,14 @@
     </insert>
     <update id="update" parameterType="com.itbaizhan.pojo.User">
         update user
-        set username = #{username},
-            sex = #{sex},
-            address = #{address}
+        <set>
+            <if test="username != null and username.length() > 0">
+                username = #{username},
+            </if>
+            <if test="sex != null and sex.length() > 0">
+                sex = #{sex},
+            </if>
+        </set>
         where id = #{id}
     </update>
     <delete id="delete" parameterType="int">
@@ -63,9 +68,10 @@
 
 <!--    动态sql-->
     <select id="findByCondition" parameterType="User" resultType="User">
-        select * from user where 1 = 1
+        select * from user
+        <where>
         <if test="username != null and username.length != 0">
-            and username like #{username}
+            username like #{username}
         </if>
         <if test="sex != null and sex.length != 0">
             and sex = #{sex}
@@ -73,9 +79,7 @@
         <if test="address != null and address.length != 0">
             and address = #{address}
         </if>
-
-
-
+        </where>
     </select>
 
 </mapper>

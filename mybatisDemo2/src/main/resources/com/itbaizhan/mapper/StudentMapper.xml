@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itbaizhan.mapper.StudentMapper">
+
+    <resultMap id="studentMapper" type="com.itbaizhan.pojo.Student">
+        <id property="sid" column="sid"></id>
+        <result property="name" column="name"></result>
+        <result property="age" column="age"></result>
+        <result property="sex" column="sex"></result>
+
+        <!-- column 外键名-->
+        <association property="classes" column="classid" javaType="com.itbaizhan.pojo.Classes">
+            <id property="cid" column="cid"></id>
+            <result property="className" column="className"></result>
+        </association>
+    </resultMap>
+    <select id="findAll" resultMap="studentMapper">
+        select * from student left join classes on student.classId = classes.cid
+    </select>
+</mapper>

@@ -4,13 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <properties resource="db.properties"></properties>
-    <settings>
-        <setting name="cacheEnabled" value="true"/>
-    </settings>
     <typeAliases>
-        <!-- 配置别名 -->
-        <typeAlias type="com.itbaizhan.pojo.User" alias="testuser"></typeAlias>
-        <!-- 为该包下的所有类配置别名，别名省略包名，和类名相同 -->
         <package name="com.itbaizhan.pojo"/>
     </typeAliases>
     <!--  配置环境  -->
@@ -35,17 +29,6 @@
 
 
     <mappers>
-        <!-- 注册映射文件 绝对路径注册映射文件-->
-<!--        <mapper url="E:\ideaWorkspace\mybatiscase\mybatisDemo1\src\main\resources\com\itbaizhan\mapper\UserMapper.xml"></mapper>-->
-
-        <!-- 注册映射文件 相对路径注册映射文件-->
-<!--        <mapper resource="com/itbaizhan/mapper/UserMapper.xml"></mapper>-->
-<!--        <mapper resource="com/itbaizhan/mapper/TeacherMapper.xml"></mapper>-->
-
-        <!-- 注册持久层接口-->
-<!--        <mapper class="com.itbaizhan.mapper.UserMapper"></mapper>-->
-
-        <!-- 注册一个包下所有的持久层接口-->
         <package name="com.itbaizhan.mapper"/>
     </mappers>
 </configuration>

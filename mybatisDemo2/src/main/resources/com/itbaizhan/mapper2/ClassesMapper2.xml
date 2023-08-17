@@ -11,7 +11,8 @@
         <collection property="studentList"
                     ofType="com.itbaizhan.pojo.Student"
                     select="com.itbaizhan.mapper2.StudentMapper2.findByClassId"
-                    column="cid">
+                    column="cid"
+                    fetchType="lazy">
         </collection>
     </resultMap>
 

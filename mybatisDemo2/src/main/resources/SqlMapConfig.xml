@@ -2,8 +2,14 @@
 <!DOCTYPE configuration
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
 <configuration>
+
     <properties resource="db.properties"></properties>
+    <!-- 测试延迟加载的设置 lazyLoad:不用就不查-->
+    <settings>
+        <setting name="lazyLoadTriggerMethods" value=""/>
+    </settings>
     <typeAliases>
         <package name="com.itbaizhan.pojo"/>
     </typeAliases>
@@ -23,11 +29,6 @@
             </dataSource>
         </environment>
     </environments>
-
-
-
-
-
     <mappers>
         <package name="com.itbaizhan.mapper"/>
         <package name="com.itbaizhan.mapper2"/>

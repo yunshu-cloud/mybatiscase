@@ -6,4 +6,19 @@
     <select id="findByClassId" resultType="com.itbaizhan.pojo.Student" parameterType="int">
         select * from student where classId = ${classId}
     </select>
+
+    <resultMap id="MyStudentMapper" type="com.itbaizhan.pojo.Student">
+        <id property="sid" column="sid"></id>
+        <result property="name" column="name"></result>
+        <result property="age" column="age"></result>
+        <result property="sex" column="sex"></result>
+        <association property="classes"
+                     javaType="com.itbaizhan.pojo.Classes"
+                     select="com.itbaizhan.mapper2.ClassesMapper2.findByCid"
+                     column="classId">
+        </association>
+    </resultMap>
+    <select id="findAllStudent" resultMap="MyStudentMapper">
+        select * from student
+    </select>
 </mapper>

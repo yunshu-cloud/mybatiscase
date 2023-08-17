@@ -9,5 +9,5 @@ public interface ClassesMapper2{
     List<Classes> findAll();
 
     // 根据ID查询班级
-//    Classes findByCid(int cid);
+    Classes findByCid(int cid);
 }

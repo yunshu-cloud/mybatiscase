@@ -20,5 +20,9 @@
         select * from classes
     </select>
 
+    <select id="findByCid" resultType="com.itbaizhan.pojo.Classes">
+        select * from classes where cid = ${cid}
+    </select>
+
 
 </mapper>

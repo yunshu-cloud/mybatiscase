@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+    <properties resource="db.properties"></properties>
+    <!--  配置环境  -->
+    <environments default="mysql">
+        <environment id="mysql">
+            <!--  事务类型  JDBC：使用JDBC的提交和回滚 MANAGED：不做事务处理，没有提交回滚操作 -->
+            <transactionManager type="JDBC"></transactionManager>
+            <!--  数据源  POOLED：使用连接池管理连接，使用MyBatis自带的连接池。
+                         UNPOOLED：不使用连接池，直接由JDBC连接
+                         JNDI：由JAVAEE服务器管理连接，如果使用Tomcat作为服务器则使用Tomcat自带的连接池管理。-->
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!-- 注册接口-->
+    <mappers>
+        <package name="com.itbaizhan.mapper"/>
+    </mappers>
+</configuration>

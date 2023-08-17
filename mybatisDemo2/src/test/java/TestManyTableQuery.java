@@ -1,6 +1,7 @@
 import com.itbaizhan.mapper.ClassesMapper;
 import com.itbaizhan.mapper.StudentMapper;
 import com.itbaizhan.mapper.TeacherMapper;
+import com.itbaizhan.mapper2.ClassesMapper2;
 import com.itbaizhan.pojo.Classes;
 import com.itbaizhan.pojo.Student;
 
@@ -58,6 +59,13 @@ public class TestManyTableQuery {
     @Test
     public void testFindAllTeacher(){
         List<Teacher2> all = teacherMapper.findAll();
+        all.forEach(System.out::println);
+    }
+
+    @Test
+    public void testFindAllClasses2(){
+        ClassesMapper2 classesMapper2 = session.getMapper(ClassesMapper2.class);
+        List<Classes> all = classesMapper2.findAll();
         all.forEach(System.out::println);
     }
 }

@@ -30,5 +30,6 @@
 
     <mappers>
         <package name="com.itbaizhan.mapper"/>
+        <package name="com.itbaizhan.mapper2"/>
     </mappers>
 </configuration>

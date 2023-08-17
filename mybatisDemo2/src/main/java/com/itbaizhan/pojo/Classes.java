@@ -7,6 +7,7 @@ public class Classes {
     private int cid;
     private String className;
     private List<Student> studentList;
+    private List<Teacher2> teacherList;
 
     @Override
     public String toString() {
@@ -14,7 +15,16 @@ public class Classes {
                 "cid=" + cid +
                 ", className='" + className + '\'' +
                 ", studentList=" + studentList +
+                ", teacherList=" + teacherList +
                 '}';
+    }
+
+    public List<Teacher2> getTeacherList() {
+        return teacherList;
+    }
+
+    public void setTeacherList(List<Teacher2> teacherList) {
+        this.teacherList = teacherList;
     }
 
     public int getCid() {

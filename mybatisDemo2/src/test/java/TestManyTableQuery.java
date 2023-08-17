@@ -1,4 +1,6 @@
+import com.itbaizhan.mapper.ClassesMapper;
 import com.itbaizhan.mapper.StudentMapper;
+import com.itbaizhan.pojo.Classes;
 import com.itbaizhan.pojo.Student;
 
 import org.apache.ibatis.io.Resources;
@@ -20,6 +22,7 @@ public class TestManyTableQuery {
     InputStream is = null;
     SqlSession session = null;
     StudentMapper studentMapper = null;
+    ClassesMapper classesMapper = null;
     @Before
     public void init() throws IOException {
          is = Resources.getResourceAsStream("SqlMapConfig.xml");
@@ -27,6 +30,7 @@ public class TestManyTableQuery {
          SqlSessionFactory factory = builder.build(is);
          session = factory.openSession();
          studentMapper = session.getMapper(StudentMapper.class);
+         classesMapper = session.getMapper(ClassesMapper.class);
     }
     @After
     public void after() throws IOException {
@@ -37,6 +41,12 @@ public class TestManyTableQuery {
     @Test
     public void testFindAllStudent() throws IOException {
         List<Student> all = studentMapper.findAll();
+        all.forEach(System.out::println);
+    }
+
+    @Test
+    public void testFindAllClasses(){
+        List<Classes> all = classesMapper.findAll();
         all.forEach(System.out::println);
     }
 

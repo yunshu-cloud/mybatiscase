@@ -10,7 +10,7 @@
         <result property="age" column="age"></result>
         <result property="sex" column="sex"></result>
 
-        <!-- column 外键名-->
+        <!-- column 外键名 关联列-->
         <association property="classes" column="classid" javaType="com.itbaizhan.pojo.Classes">
             <id property="cid" column="cid"></id>
             <result property="className" column="className"></result>

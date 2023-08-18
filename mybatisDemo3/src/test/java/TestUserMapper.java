@@ -36,4 +36,28 @@ public class TestUserMapper {
         List<User> all = userMapper.findAll();
         all.forEach(System.out::println);
     }
+
+    @Test
+    public void testAdd(){
+        User user = new User("北京程序员", "女", "朝阳区");
+        userMapper.add(user);
+        session.commit();
+    }
+
+    @Test
+    public void testUpdate(){
+        User user = new User(7,"上海程序员", "女", "黄埔区");
+        userMapper.update(user);
+        session.commit();
+    }
+
+
+    @Test
+    public void testFindByCondition(){
+        User user = new User();
+        user.setUsername("%北京%");
+        List<User> all = userMapper.findByCondition(user);
+        all.forEach(System.out::println);
+
+    }
 }

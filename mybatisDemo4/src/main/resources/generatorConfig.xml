@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+
+<generatorConfiguration>
+    <!-- jdbc的jar包位置，插件需要连接数据库 -->
+    <classPathEntry location="/Users/wangzhixiong/.m2/repository/mysql/mysql-connector-java/8.0.26/mysql-connector-java-8.0.26.jar"/>
+
+    <context id="default" targetRuntime="MyBatis3">
+        <!-- 是否去除自动生成的注释-->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!--数据库连接参数-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/mybatis"
+                        userId="root"
+                        password="root@1234"></jdbcConnection>
+        <!-- 类型处理器，在数据库类型和java类型之间的转换控制-->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+
+        <!-- targetProject:JAVA类路径  targetProject:生成的POJO类的包-->
+        <javaModelGenerator targetProject="src/main/java" targetPackage="com.itbaizhan.pojo">
+            <!-- 是否生成子包 -->
+            <property name="enableSubPackages" value="false"/>
+            <!-- 设置是否在getter方法中，对String类型字段调用trim()方法 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+
+        <!-- targetProject:配置文件路径 targetPackage:生成映射文件的位置 -->
+        <sqlMapGenerator targetProject="src/main/resources" targetPackage="com.itbaizhan.mapper">
+            <!-- 是否生成子包 -->
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+
+        <!-- targetPackage：JAVA类路径 targetProject:生成的持久层接口包 -->
+        <javaClientGenerator targetProject="src/main/java" targetPackage="com.itbaizhan.mapper" type="XMLMAPPER">
+            <!-- 是否生成子包 -->
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+
+        <!-- 数据库表，表名不要和其他库中的表名一样 -->
+        <table tableName="product"></table>
+    </context>
+</generatorConfiguration>

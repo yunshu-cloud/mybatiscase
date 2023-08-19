@@ -5,7 +5,14 @@
 
 <configuration>
 
+
     <properties resource="db.properties"></properties>
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <!-- 设置数据库类型-->
+            <property name="helperDialect" value="mysql"/>
+        </plugin>
+    </plugins>
     <!--  配置环境  -->
     <environments default="mysql">
         <environment id="mysql">

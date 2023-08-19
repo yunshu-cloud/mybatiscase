@@ -1,3 +1,6 @@
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.itbaizhan.mapper.UserMapper;
 import com.itbaizhan.pojo.User;
 import org.apache.ibatis.io.Resources;
@@ -59,5 +62,17 @@ public class TestUserMapper {
         List<User> all = userMapper.findByCondition(user);
         all.forEach(System.out::println);
 
+    }
+
+
+    @Test
+    public void testFindPage(){
+        PageHelper.startPage(1,3);
+        List<User> all = userMapper.findAll();
+        PageInfo pageInfo = new PageInfo(all);
+        System.out.println("结果集："+pageInfo.getList());
+        System.out.println("总条数："+pageInfo.getTotal());
+        System.out.println("总页数："+pageInfo.getPages());
+        System.out.println("当前页："+pageInfo.getPageNum());
     }
 }

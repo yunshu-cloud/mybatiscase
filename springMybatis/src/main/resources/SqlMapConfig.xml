@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+<!--    数据源、扫描接口都交由Spring管理，不需要在MyBatis配置文件中设置。-->
+    <mappers>
+        <mapper class="com.itbaizhan.dao.StudentDao"></mapper>
+    </mappers>
+</configuration>
